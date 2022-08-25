@@ -1,0 +1,2250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="#ffffff" name="theme-color"/>
+    <title>The best customized global eCommerce marketplace</title>
+    <meta content="The best customized global eCommerce marketplace" name="keywords">
+    <meta content="The best customized global eCommerce marketplace" name="description">
+    <meta content="index, follow" name="robots"/>
+    <meta content="PAPMALL" name="author"/>
+    <meta content="PAPMALL" name="copyright"/>
+    <meta content="" property="og:title"/>
+    <meta content="The best customized global eCommerce marketplace" property="og:description"/>
+    <meta content="" property="og:url"/>
+    <meta content="PAPMALL" property="og:site_name"/>
+    <meta content="" property="og:image"/>
+    <meta content="" property="og:image:secure_url"/>
+    <meta content="1920" property="og:image:width"/>
+    <meta content="960" property="og:image:height"/>
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta content="The best customized global eCommerce marketplace" name="twitter:description"/>
+    <meta content="" name="twitter:title"/>
+    <meta content="" name="twitter:image"/>
+    <link href="https://www.papmall.com/the-best-customized-global-ecommerce-marketplace" rel="canonical"> <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css"/>
+    <link href='https://www.papmall.com/frontend/css/final.min.css?v=1.0.4' rel='stylesheet' type='text/css'/>
+    <script> var commands = [];
+    var WEB_URL = "/"; </script>
+    <script>(function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P3JRTBD');</script>
+    <script> var codeSS = 'USD';
+    var amountSS = 1.00000000;
+    var symbolLeftSS = 'US$';
+    var convertLink = false;
+    var attrCurrencyDecimal = 2;
+    var attrCurrencyIsSub = 'N';
+    let $currency_code = 'USD'; </script>
+</head>
+<script> (function (t, a, l, k, j, s) {
+    s = a.createElement('script');
+    s.async = 1;
+    s.src = "https://cdn.talkjs.com/talk.js";
+    a.head.appendChild(s);
+    k = t.Promise;
+    t.Talk = {
+        v: 2, ready: {
+            then: function (f) {
+                if (k) return new k(function (r, e) {
+                    l.push([f, r, e])
+                });
+                l.push([f])
+            }, catch: function () {
+                return k && new k()
+            }, c: l
+        }
+    };
+})(window, document, []); </script>
+<body>
+<div id="showChat" style="position: fixed; width: 40px; height: 40px; background-color: #1f69b2; z-index: 1000; right: 0; top: calc(50vh - 20px); display: flex; align-items: center; justify-content: center; cursor: pointer">
+    <img src="https://www.papmall.com/frontend/images/icon-email-contact-us.svg"></div>
+<div class="d-none" id="chatBox" style="position: fixed; bottom: 0; right: 0; width: 675px; height: 425px; background-color: #fff; z-index: 1000; border-radius: 8px; box-shadow: 0 15px 35px rgba(0,0,0,0.1)"></div>
+<noscript>
+    <iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-P3JRTBD" style="display:none;visibility:hidden" width="0"></iframe>
+</noscript>
+<style></style>
+<script> commands.push(function () {
+    $('.header__categoryParent').mouseover(function () {
+        let $thisEle = $(this);
+        setTimeout(function () {
+            $thisEle.find('.masonry-grid').masonry({itemSelector: '.masonry-item'});
+        }, 50);
+    });
+    if ($(window).height() < 650) {
+        $('.header__serviceTitle').next().addClass('scrollable').css('overflow-y', 'auto');
+    }
+    $('input[name=txtSearchHeader]').on('keyup', function (e) {
+        if (e.key === 'Enter' || e.keyCode === 13) {
+            $('.btnSearch').click();
+        }
+    });
+    $('.btnSearch').on('click', function () {
+        if ($('input[name=txtSearchHeader]').val() !== '') {
+            window.location.href = 'https://www.papmall.com/search?keyword=' + $('input[name=txtSearchHeader]').val();
+        }
+    });
+    $('.mark-read-header').on('click', function () {
+        var self = $(this);
+        var href = self.attr('data-href');
+        var recapchaKey = window.GLOBAL_VARIABLES.recaptchaSitekey;
+        grecaptcha.enterprise.ready(function () {
+            grecaptcha.enterprise.execute(recapchaKey, {action: 'validate_captcha'}).then(function (token) {
+                $.ajax({
+                    url: '/myaccount/notification/mark-as-read',
+                    data: {token: token, id: self.attr('data-id')},
+                    type: "POST",
+                    beforeSend: function () {
+                        $('#l-loading').show();
+                    },
+                    success: function (response) {
+                        $('#l-loading').hide();
+                        let res = JSON.parse(response);
+                        if (res.hasOwnProperty('url')) processResourceNotAllowed(); else {
+                            if (res.status == true) {
+                                window.location.href = "https://www.papmall.com" + href;
+                            }
+                        }
+                    }
+                });
+            });
+        });
+    });
+}); </script>
+<link href="style.css" rel="stylesheet">
+<main class="bg-white">
+    <link href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" rel="stylesheet">
+    <section class="seller-banner">
+        <div class="banner-center">
+            <img alt="The best customized global eCommerce marketplace" class="box-pc w-100" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/banner-lp-1659500148.jpg" title="The best customized global eCommerce marketplace">
+            <img alt="The best customized global eCommerce marketplace" class="box-sp w-100" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/banner-lp-xs-1659500148.jpg" title="The best customized global eCommerce marketplace">
+            <div class="banner-center-content flex-column">
+                <div class="text-center mb-40"><h1>The best customized global eCommerce marketplace</h1>
+                    <p class="text-white">Easily create your online store and start selling today!</p></div>
+                <div class="btn-container">
+                    <a class="btn-banner btn btn-hover btn-xl" href="|||LANG|||/register" target="_blank" title="It's free to sign up!"> It's free to sign up! </a>
+                    <div class="iframe-lazy-container video-btn">
+                        <button class="btn-youtube-modal">
+                            <img alt="" class="youtube-video-thumbnail lazyload" data-iframe="https://www.youtube.com/embed/IfpAEoQGR_w?playlist=IfpAEoQGR_w&autoplay=1&mute=1&loop=1" data-src="https://d3lpnmaex2fqln.cloudfront.net/uploads/btn-youtube-1659501390.svg" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/btn-youtube-1659501390.svg"/>
+                        </button>
+                    </div>
+                    <a class="btn-banner btn btn-blue btn-hover btn-xl" href="https://seller.papmall.com/" target="_blank" title="Start selling"> Start selling </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-introduce">
+        <div class="container">
+            <div class="inner-title text-center">
+                <h2> papmall<sup>&reg;</sup> is the best e-commerce platform for selling various products and services that you’re looking for </h2>
+                <p> papmall<sup>&reg;</sup> is a trusted global e-commerce marketplace, which not only provides online shoppers a simple, secure, and enjoyable digital shopping experience, but also plays as a solution for global sellers to optimize sales revenue. </p>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card card-hover-blue">
+                        <img alt="Start an online e-commerce business" class="img-card" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-monitor-1659512949.svg" title="Start an online e-commerce business" width="96">
+                        <div class="card-body">
+                            <h3 class="card-title text-center"> Start an online e-commerce business </h3>
+                            <ul class="list-dot">
+                                <li> Join in on the e-commerce boom and sell globally. Set the margins that work best for your business model and start selling.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-hover-blue">
+                        <img alt="Secure & flexible payments" class="img-card" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-shield-1659513186.svg" title="Secure & flexible payments" width="96">
+                        <div class="card-body"><h3 class="card-title text-center"> Secure & flexible payments </h3>
+                            <ul class="list-dot">
+                                <li> Offer multiple payment options.
+                                </li>
+                                <li> Guarantee protection with highly-secured payment features.
+                                </li>
+                                <li>
+                                    Payout seamlessly with any bank accounts and e-wallets.
+                                    <div style="padding: 0 26px 0 0; text-align: center">
+                                        <img class="list-img" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/pci-dss-1659514667.svg" width="51" alt="PCI DSS" title="PCI DSS">
+                                        <img class="list-img" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/3d-secure-1659514667.svg" width="51" alt="3D Secure" title="3D Secure">
+                                        <img class="list-img" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/visa-1659513826.svg" alt="Visa" title="Visa">
+                                        <img class="list-img" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/master-card-1659513826.svg" alt="Master Card" title="Master Card">
+                                        <img class="list-img" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/american-express-1659513825.svg" alt="American Express" title="American Express">
+                                        <img class="list-img" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/paypal-1659513826.svg" alt="PayPal" title="PayPal">
+                                        <img class="list-img" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/discover-1659513825.svg" alt="Discover" title="Discover">
+                                        <img class="list-img" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/jcb-1659513825.svg" alt="JCB" title="JCB">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-hover-blue">
+                        <img alt="It’s FREE!" class="img-card" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-free-1659514833.svg" title="It’s FREE!" width="96">
+                        <div class="card-body"><h3 class="card-title text-center"> It’s FREE! </h3>
+                            <ul class="list-dot">
+                                <li> No setup fees.</li>
+                                <li> No hidden fees.</li>
+                                <li> No advertising fees.</li>
+                                <li> No technical support fee.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-hover-blue">
+                        <img alt="Go global" class="img-card" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-global-1659517426.svg" title="Go global" width="96">
+                        <div class="card-body"><h3 class="card-title text-center"> Go global </h3>
+                            <ul class="list-dot">
+                                <li> Scale up your business easily and swiftly to reach a wider range of customers.</li>
+                                <li> Sell to anyone in the world from the comfort of your own home.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-hover-blue">
+                        <img alt="Technical support" class="img-card" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-support-1659517426.svg" title="Technical support" width="96">
+                        <div class="card-body"><h3 class="card-title text-center"> Technical support </h3>
+                            <ul class="list-dot">
+                                <li> No technical requirements.</li>
+                                <li> SEO & Paid ads support.</li>
+                                <li> Flexible APIs.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-hover-blue">
+                        <img alt="Frauds and risks management" class="img-card" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-manage-1659517426.svg" title="Frauds and risks management" width="96">
+                        <div class="card-body"><h3 class="card-title text-center"> Frauds and risks management </h3>
+                            <ul class="list-dot">
+                                <li> Manage and minimize frauds and risks so that customers can trust and enhance your reputation when doing business on papmall<sup>&reg;</sup>.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-container">
+                <a class="btn btn-hover btn-xl" href="|||LANG|||/about-us" target="_blank" title="It's free to sign up!"> Discover more </a>
+            </div>
+        </div>
+    </section>
+    <section class="section-sell">
+        <div class="container">
+            <div class="inner-title text-center"><h2> What can you sell on papmall<sup>&reg;</sup> </h2>
+                <p> papmall<sup>&reg;</sup> specializes in digital software solutions together with a bunch of products and services for individuals to business organizations including startups and SMEs. </p>
+            </div>
+            <div class="swiper swiper-container swiper-category">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="card card-no-border">
+                            <div class="img-inner">
+                                <img alt="Services" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/img-service-1659577634.png" title="Services">
+                                <span> Services </span></div>
+                            <div class="card-body">
+                                <ul class="list-unstyled list-category">
+                                    <li>
+                                        <a href="|||LANG|||/service/graphics-design" target="_self" title="Graphics & Design">Graphics & Design</a>
+                                    </li>
+                                    <li>
+                                        <a href="|||LANG|||/service/video-animation" target="_self" title="Video & Animation">Video & Animation</a>
+                                    </li>
+                                    <li>
+                                        <a href="|||LANG|||/service/business" target="_self" title="Business">Business</a>
+                                    </li>
+                                    <li>
+                                        <a href="|||LANG|||/service/digital-marketing" target="_self" title="Digital Marketing">Digital Marketing</a>
+                                    </li>
+                                    <li>
+                                        <a href="|||LANG|||/service/music-audio" target="_self" title="Music & Audio">Music & Audio</a>
+                                    </li>
+                                    <li>
+                                        <a href="|||LANG|||/service/lifestyle" target="_self" title="Lifestyle">Lifestyle</a>
+                                    </li>
+                                    <li>
+                                        <a href="|||LANG|||/service/writing-translation" target="_self" title="Writing & Translation">Writing & Translation</a>
+                                    </li>
+                                    <li>
+                                        <a href="|||LANG|||/service/programming-tech" target="_self" title="Programming & Tech">Programming & Tech</a>
+                                    </li>
+                                    <li>
+                                        <a href="|||LANG|||/service/trending" target="_self" title="Trending">Trending</a>
+                                    </li>
+                                </ul>
+                                <div class="btn-container">
+                                    <a class="btn btn-border-orange" href="|||LANG|||/register" target="_blank" title="It's free to sign up!"> Sign Up for Free </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card card-no-border">
+                            <div class="img-inner">
+                                <img alt="Digital Solutions" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/img-solution-1659583268.png" title="Digital Solutions">
+                                <span> Digital Solutions </span></div>
+                            <div class="card-body">
+                                <ul class="list-unstyled list-category">
+                                    <li>
+                                        <a href="|||LANG|||/digital/business-software" target="_self" title="Business Software">Business Software</a>
+                                    </li>
+                                    <li>
+                                        <a href="|||LANG|||/digital/office-tools" target="_self" title="Office Tools">Office Tools</a>
+                                    </li>
+                                    <li>
+                                        <a href="|||LANG|||/digital/utilitites" target="_self" title="Utilities">Utilities</a>
+                                    </li>
+                                    <li>
+                                        <a href="|||LANG|||/digital/data-recovery" target="_self" title="Data Recovery">Data Recovery</a>
+                                    </li>
+                                    <li>
+                                        <a href="|||LANG|||/digital/security" target="_self" title="Security">Security</a>
+                                    </li>
+                                    <li>
+                                        <a href="|||LANG|||/digital/internet-tools" target="_self" title="Internet Tools">Internet Tools</a>
+                                    </li>
+                                    <li>
+                                        <a href="|||LANG|||/digital/programming" target="_self" title="Programming">Programming</a>
+                                    </li>
+                                    <li>
+                                        <a href="|||LANG|||/digital/multimedia" target="_self" title="Multimedia">Multimedia</a>
+                                    </li>
+                                    <li>
+                                        <a href="|||LANG|||/digital/graphics" target="_self" title="Graphics">Graphics</a>
+                                    </li>
+                                </ul>
+                                <div class="btn-container">
+                                    <a class="btn btn-border-orange" href="|||LANG|||/register" target="_blank" title="It's free to sign up!"> Sign Up for Free </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card card-no-border">
+                            <div class="img-inner">
+                                <img alt="Goods" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/img-goods-1659583268.png" title="Goods">
+                                <span> Goods </span></div>
+                            <div class="card-body">
+                                <ul class="list-unstyled list-category">
+                                    <li>
+                                        <a href="#" target="_self" title="Mobile & Accessories">Mobile & Accessories</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_self" title="Computer & Accessories">Computer & Accessories</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_self" title="Men Fashion">Men Fashion</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_self" title="Women Fashion">Women Fashion</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_self" title="Jewelry & Fashion Accessories">Jewelry & Fashion Accessories</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_self" title="health-beauty">Health Beauty</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_self" title="Home Appliances">Home Appliances</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_self" title="Groceries">Groceries</a>
+                                    </li>
+                                    <li>
+                                        <span class="text-italic" style="font-size: 16px; padding: 8px 16px;">(Coming Soon)</span>
+                                    </li>
+                                </ul>
+                                <div class="btn-container">
+                                    <a class="btn btn-border-orange" href="|||LANG|||/register" target="_blank" title="It's free to sign up!"> Sign Up for Free </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-why">
+        <div class="container">
+            <div class="inner-title text-center"><h2> Why papmall<sup>&reg;</sup> </h2></div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="media media-simple d-none d-md-flex">
+                        <div class="media-left">
+                            <img alt="Set up PAP in minutes" class="media-object" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-why-1-1659598148.svg" title="Set up PAP in minutes">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading"> Set up PAP in minutes </h3> Set up your store with our ready-made e-commerce platform in the blink of an eye to sell anywhere in the world and skyrocket your sales.
+                            <div class="btn-container">
+                                <a class="btn btn-border-orange" href="|||LANG|||/register" target="_blank" title="Set up FREE"> Set up FREE </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="media media-simple d-none d-md-flex">
+                        <div class="media-left">
+                            <img alt="Sell with confidence" class="media-object" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-why-2-1659598148.svg" title="Sell with confidence">
+                        </div>
+                        <div class="media-body"><h3 class="media-heading"> Sell with confidence </h3>
+                            <ul class="list-dot">
+                                <li> The Top Rated Seller reflects all your hard work and reputation.</li>
+                                <li> Increase your conversion rates.</li>
+                                <li> Maximize your sales revenue.</li>
+                            </ul>
+                            <div class="btn-container">
+                                <a class="btn btn-border-orange" href="|||LANG|||/register" target="_blank" title="Start selling"> Start selling </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center">
+                        <img alt="Why papmall<sup>&reg;</sup>" class="img-phone" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/mobile-screen-1659598290.png" title="Why papmall<sup>&reg;</sup>">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="media media-simple d-none d-md-flex">
+                        <div class="media-left">
+                            <img alt="24/7 support" class="media-object" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-why-3-1659598149.svg" title="24/7 support">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading"> 24/7 support </h3> papmall<sup>&reg;</sup> team supports in a timely and pleasant manner to make sure our customers are not merely satisfied. They are actually happy with our products and services.
+                            <div class="btn-container">
+                                <a class="btn btn-border-orange" href="|||LANG|||/contact-us" target="_blank" title="Contact us"> Contact us </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="media media-simple d-none d-md-flex">
+                        <div class="media-left">
+                            <img alt="" class="media-object" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-why-4-1659598149.svg">
+                        </div>
+                        <div class="media-body"><h3 class="media-heading"> One-Stop Solution </h3>
+                            <ul class="list-dot">
+                                <li> Online stores.</li>
+                                <li> Check out.</li>
+                                <li> Promotion channels.</li>
+                                <li> International commerce.</li>
+                                <li> Buy button. <small class="text-italic">(Coming soon)</small></li>
+                                <li> Custom storefront tools. <small class="text-italic">(Coming soon)</small></li>
+                            </ul>
+                            <div class="btn-container">
+                                <a class="btn btn-border-orange" href="#form-inner" target="_self" title="Subscription now"> Subscription now </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper swiper-container swiper-simple d-md-none">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="media media-simple">
+                            <div class="media-left">
+                                <img alt="Set up PAP in minutes" class="media-object" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-why-1-1659598148.svg" title="Set up PAP in minutes">
+                            </div>
+                            <div class="media-body">
+                                <h3 class="media-heading"> Set up PAP in minutes </h3> Set up your store with our ready-made e-commerce platform in the blink of an eye to sell anywhere in the world and skyrocket your sales.
+                                <div class="btn-container">
+                                    <a class="btn btn-border-orange" href="|||LANG|||/register" target="_blank" title="Set up FREE"> Set up FREE </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="media media-simple">
+                            <div class="media-left">
+                                <img alt="Sell with confidence" class="media-object" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-why-2-1659598148.svg" title="Sell with confidence">
+                            </div>
+                            <div class="media-body"><h3 class="media-heading"> Sell with confidence </h3>
+                                <ul class="list-dot">
+                                    <li> The Top Rated Seller reflects all your hard work and reputation.</li>
+                                    <li> Increase your conversion rates.</li>
+                                    <li> Maximize your sales revenue.</li>
+                                </ul>
+                                <div class="btn-container">
+                                    <a class="btn btn-border-orange" href="|||LANG|||/register" target="_blank" title="Start selling"> Start selling </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="media media-simple">
+                            <div class="media-left">
+                                <img alt="24/7 support" class="media-object" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-why-3-1659598149.svg" title="24/7 support">
+                            </div>
+                            <div class="media-body">
+                                <h3 class="media-heading"> 24/7 support </h3> papmall<sup>&reg;</sup> team supports in a timely and pleasant manner to make sure our customers are not merely satisfied. They are actually happy with our products and services.
+                                <div class="btn-container">
+                                    <a class="btn btn-border-orange" href="|||LANG|||/contact-us" target="_blank" title="Contact us"> Contact us </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="media media-simple">
+                            <div class="media-left">
+                                <img alt="Sell with confidence" class="media-object" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-why-2-1659598148.svg" title="Sell with confidence">
+                            </div>
+                            <div class="media-body"><h3 class="media-heading"> Sell with confidence </h3>
+                                <ul class="list-dot">
+                                    <li> The Top Rated Seller reflects all your hard work and reputation.</li>
+                                    <li> Increase your conversion rates.</li>
+                                    <li> Maximize your sales revenue.</li>
+                                </ul>
+                                <div class="btn-container">
+                                    <a class="btn btn-border-orange" href="#form-inner" target="_self" title="Subscription now"> Subscription now </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+    <section class="section-offer" style="background: url('https://d3lpnmaex2fqln.cloudfront.net/uploads/bg-offer-1659604691.jpg') 50% 50% / cover no-repeat;">
+        <div class="container">
+            <div class="inner-title text-center"><h2> Get best offers to begin selling on your PAP within minutes </h2>
+                <p> The options are flexible, so you can find the offer that works best for you and your goals. </p>
+            </div>
+            <h3 class="title-sm"> Your Special Offers Expire In: </h3>
+            <div class="time-count">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="circle-time"><span class="time-number" id="days">90</span>
+                            <div class="time-cap">days</div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="circle-time"><span class="time-number" id="hours">00</span>
+                            <div class="time-cap">hrs</div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="circle-time"><span class="time-number" id="min">00</span>
+                            <div class="time-cap">min</div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="circle-time"><span class="time-number" id="sec">00</span>
+                            <div class="time-cap">sec</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-inner" id="form-inner"><h4 class="title-form"> Grab it today </h4> |||LEADFORM|||
+                <ul class="list-unstyled list-icon-social">
+                    <li>
+                        <a href="https://www.linkedin.com/company/papmall-singapore-pte-ltd" target="_blank" title="InkedIn">
+                            <img alt="LinkedIn" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-linkedin-1659670370.svg" title="LinkedIn">
+                        </a></li>
+                    <li>
+                        <a href="https://www.youtube.com/channel/UCqyI6vKzedlx5uCTxe-qGqA" target="_blank" title="Youtube">
+                            <img alt="Youtube" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-youtube-1659670370.svg" title="Youtube">
+                        </a></li>
+                    <li><a href="https://www.facebook.com/papmallofficial" target="_blank" title="Facebook">
+                        <img alt="Facebook" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-facebook-1659670370.svg" title="Facebook">
+                    </a></li>
+                    <li><a href="https://twitter.com/papmall" title="Twitter">
+                        <img alt="Twitter" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-twitter-1659670370.svg" title="Twitter">
+                    </a></li>
+                    <li><a href="https://www.instagram.com/papmall_official/" target="_blank" title="Instagram">
+                        <img alt="Instagram" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-insta-1659670370.svg" title="Instagram">
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="section-subscriptions">
+        <div class="container">
+            <div class="swiper swiper-sub-title d-md-none" thumbsSlider="">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"> Freelance</div>
+                    <div class="swiper-slide"> Business</div>
+                </div>
+            </div>
+            <div class="swiper swiper-subscriptions">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="card card-subscription card-sub-blue"><h2 class="card-title"> Freelance
+                            <small>Everything you need to create your store</small></h2>
+                            <div class="card-body"><p class="text"> Get
+                                <strong>3 MONTHS</strong> of monthly fee for FREE. <br> 4% Payment fee/purchase
+                                <br> 8% Commission fee/purchase. </p>
+                                <div class="list-inner">
+                                    <div class="list">
+                                        <h3 class="title-list"> What’s included on Freelance package: </h3>
+                                        <ul class="list-unstyled list-check list-check-blue">
+                                            <li> Get free SEO & Paid ads support.</li>
+                                            <li> 2 staff accounts.</li>
+                                            <li> Basic reports.</li>
+                                            <li> Online sales training with experts.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="btn-container">
+                                        <a class="btn btn-block btn-blue btn-hover" href="|||LANG|||/register" title="Sign up for Free"> Sign up for Free </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collapse" id="collapseTable-1">
+                            <div class="table-grid-custom mt-3 d-md-none">
+                                <div class="grid-item item-head">
+                                    <div class="grid-2">Freelance</div>
+                                </div>
+                                <div class="grid-item item-body item-body-first">
+                                    <div class="grid-1"> FEATURES</div>
+                                    <div class="grid-2"></div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Online Store <br> Includes e-commerce websites and blogs. </span>
+                                    </div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Unlimited products </span></div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Staff accounts <br> Staff members with access to the papmall<sup>&reg;</sup> admin. </span>
+                                    </div>
+                                    <div class="grid-2">2</div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> 24/7 support </span></div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Sales channels <br> Sell on online marketplaces and social media. Channel availability varies by country. </span>
+                                    </div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Manual order creation </span></div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Discount codes </span></div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Discount codes </span></div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Free SSL certificate </span></div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Abandoned cart recovery </span></div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Gift cards </span></div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Reports </span></div>
+                                    <div class="grid-2"> Basic</div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Third-party calculated shipping rates(coming soon) <br> Show calculated rates with your own account or third-party apps at checkout. </span>
+                                    </div>
+                                    <div class="grid-2"></div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Customer segmentation <br> Filter and group customers into hundreds of segments. </span>
+                                    </div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Marketing automation <br> Send automated emails with templated or custom workflows. </span>
+                                    </div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Unlimited contacts </span></div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1">
+                                        <span class="note-dot"> E-commerce automations (Coming soon) <br> Automate manual tasks, build workflows, and grow your business. </span>
+                                    </div>
+                                    <div class="grid-2"></div>
+                                </div>
+                                <div class="grid-item item-body item-body-last">
+                                    <div class="grid-1"><span class="note-dot"> Fraud analysis </span></div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body item-body-first">
+                                    <div class="grid-1"> INTERNATIONAL COMMERCE</div>
+                                    <div class="grid-2"></div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> International market management <br> Define geographic market areas to ensure you are providing a localized buying experience for customers in different regions. </span>
+                                    </div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Market domains and subfolders(Coming soon) <br> Assign custom web addresses for each market that are optimized for search results and automatically redirect customers to the right domain based on their market. </span>
+                                    </div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Language translation <br> Assign translated languages to customers in different markets to provide a familiar shopping experience. </span>
+                                    </div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Currency conversion <br> Automatically convert prices into your customer’s local currency to drive conversion in each market (requires papmall<sup>&reg;</sup> payments). </span>
+                                    </div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Local payment methods <br> Set local payment methods to appear for customers who check out in specific markets (requires papmall<sup>&reg;</sup> payments). </span>
+                                    </div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body item-body-last">
+                                    <div class="grid-1"><span class="note-dot"> Custom pricing by market <br> Take greater control of your international pricing strategy by setting specific prices for products or product variants in each market. </span>
+                                    </div>
+                                    <div class="grid-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-container d-md-none mt-3">
+                            <a aria-controls="collapseTable-1" aria-expanded="false" class="btn-collapse" data-toggle="collapse" href="#collapseTable-1" id="btn-1" role="button"> Show plan features </a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card card-subscription card-sub-orange">
+                            <img alt="Popular" class="icon-absolute" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-popular-1659691286.svg" title="Popular">
+                            <h2 class="card-title"> Business
+                                <small>Best for growing businesses selling online</small></h2>
+                            <div class="card-body"><p class="text"> Get
+                                <strong>4 MONTHS</strong> of monthly fee for FREE. <br> 4% Payment fee/purchase
+                                <br> 6% Commission fee/purchase.
+                            </p>
+                                <div class="list-inner">
+                                    <div class="list">
+                                        <h3 class="title-list"> What’s included on Business package: </h3>
+                                        <ul class="list-unstyled list-check list-check-orange">
+                                            <li> Get free SEO & Paid ads support.</li>
+                                            <li> 5 staff accounts.</li>
+                                            <li> Professional reports.</li>
+                                            <li> Top placement on product detail pages.</li>
+                                            <li> Premium account services</li>
+                                            <li> (Premium account management and other services are available to help craft your business plan, offer personalized coaching and training, and provide information to help you grow your sales on papmall<sup>&reg;</sup>).</li>
+                                        </ul>
+                                    </div>
+                                    <div class="btn-container">
+                                        <a class="btn btn-block btn-hover" href="|||LANG|||/register" title="Sign up for Free"> Sign up for Free </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collapse" id="collapseTable-2">
+                            <div class="table-grid-custom mt-3 d-md-none">
+                                <div class="grid-item item-head">
+                                    <div class="grid-2">Business</div>
+                                </div>
+                                <div class="grid-item item-body item-body-first">
+                                    <div class="grid-1"> FEATURES</div>
+                                    <div class="grid-2"></div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Online Store <br> Includes e-commerce websites and blogs. </span>
+                                    </div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Unlimited products </span></div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Staff accounts <br> Staff members with access to the papmall<sup>&reg;</sup> admin. </span>
+                                    </div>
+                                    <div class="grid-2">5</div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> 24/7 support </span></div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Sales channels <br> Sell on online marketplaces and social media. Channel availability varies by country. </span>
+                                    </div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Manual order creation </span></div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Discount codes </span></div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Discount codes </span></div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Free SSL certificate </span></div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Abandoned cart recovery </span></div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Gift cards </span></div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Reports </span></div>
+                                    <div class="grid-2"> Standard</div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Third-party calculated shipping rates(coming soon) <br> Show calculated rates with your own account or third-party apps at checkout. </span>
+                                    </div>
+                                    <div class="grid-2"></div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Customer segmentation <br> Filter and group customers into hundreds of segments. </span>
+                                    </div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Marketing automation <br> Send automated emails with templated or custom workflows. </span>
+                                    </div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Unlimited contacts </span></div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1">
+                                        <span class="note-dot"> E-commerce automations (Coming soon) <br> Automate manual tasks, build workflows, and grow your business. </span>
+                                    </div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body item-body-last">
+                                    <div class="grid-1"><span class="note-dot"> Fraud analysis </span></div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body item-body-first">
+                                    <div class="grid-1"> INTERNATIONAL COMMERCE</div>
+                                    <div class="grid-2"></div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> International market management <br> Define geographic market areas to ensure you are providing a localized buying experience for customers in different regions. </span>
+                                    </div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Market domains and subfolders(Coming soon) <br> Assign custom web addresses for each market that are optimized for search results and automatically redirect customers to the right domain based on their market. </span>
+                                    </div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Language translation <br> Assign translated languages to customers in different markets to provide a familiar shopping experience. </span>
+                                    </div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Currency conversion <br> Automatically convert prices into your customer’s local currency to drive conversion in each market (requires papmall<sup>&reg;</sup> payments). </span>
+                                    </div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body">
+                                    <div class="grid-1"><span class="note-dot"> Local payment methods <br> Set local payment methods to appear for customers who check out in specific markets (requires papmall<sup>&reg;</sup> payments). </span>
+                                    </div>
+                                    <div class="grid-2">
+                                        <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                                    </div>
+                                </div>
+                                <div class="grid-item item-body item-body-last">
+                                    <div class="grid-1"><span class="note-dot"> Custom pricing by market <br> Take greater control of your international pricing strategy by setting specific prices for products or product variants in each market. </span>
+                                    </div>
+                                    <div class="grid-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-container d-md-none mt-3">
+                            <a aria-controls="collapseTable-2" aria-expanded="false" class="btn-collapse" data-toggle="collapse" href="#collapseTable-2" id="btn-2" role="button"> Show plan features </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="collapse" id="collapseTable">
+                <div class="table-grid-custom d-none d-md-block">
+                    <div class="grid-item item-head">
+                        <div class="grid-1"></div>
+                        <div class="grid-2"> Freelance</div>
+                        <div class="grid-3"> Business</div>
+                    </div>
+                    <div class="grid-item item-body item-body-first">
+                        <div class="grid-1"> FEATURES</div>
+                        <div class="grid-2"></div>
+                        <div class="grid-3"></div>
+                    </div>
+                    <div class="grid-item item-body">
+                        <div class="grid-1"><span class="note-dot"> Online Store <br> Includes e-commerce websites and blogs. </span>
+                        </div>
+                        <div class="grid-2">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                        <div class="grid-3">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                    </div>
+                    <div class="grid-item item-body">
+                        <div class="grid-1"><span class="note-dot"> Unlimited products </span></div>
+                        <div class="grid-2">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                        <div class="grid-3">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                    </div>
+                    <div class="grid-item item-body">
+                        <div class="grid-1"><span class="note-dot"> Staff accounts <br> Staff members with access to the papmall<sup>&reg;</sup> admin. </span>
+                        </div>
+                        <div class="grid-2">2</div>
+                        <div class="grid-3">5</div>
+                    </div>
+                    <div class="grid-item item-body">
+                        <div class="grid-1"><span class="note-dot"> 24/7 support </span></div>
+                        <div class="grid-2">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                        <div class="grid-3">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                    </div>
+                    <div class="grid-item item-body">
+                        <div class="grid-1"><span class="note-dot"> Sales channels <br> Sell on online marketplaces and social media. Channel availability varies by country. </span>
+                        </div>
+                        <div class="grid-2">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                        <div class="grid-3">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                    </div>
+                    <div class="grid-item item-body">
+                        <div class="grid-1"><span class="note-dot"> Manual order creation </span></div>
+                        <div class="grid-2">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                        <div class="grid-3">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                    </div>
+                    <div class="grid-item item-body">
+                        <div class="grid-1"><span class="note-dot"> Discount codes </span></div>
+                        <div class="grid-2">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                        <div class="grid-3">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                    </div>
+                    <div class="grid-item item-body">
+                        <div class="grid-1"><span class="note-dot"> Discount codes </span></div>
+                        <div class="grid-2">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                        <div class="grid-3">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                    </div>
+                    <div class="grid-item item-body">
+                        <div class="grid-1"><span class="note-dot"> Free SSL certificate </span></div>
+                        <div class="grid-2">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                        <div class="grid-3">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                    </div>
+                    <div class="grid-item item-body">
+                        <div class="grid-1"><span class="note-dot"> Abandoned cart recovery </span></div>
+                        <div class="grid-2">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                        <div class="grid-3">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                    </div>
+                    <div class="grid-item item-body">
+                        <div class="grid-1"><span class="note-dot"> Gift cards </span></div>
+                        <div class="grid-2">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                        <div class="grid-3">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                    </div>
+                    <div class="grid-item item-body">
+                        <div class="grid-1"><span class="note-dot"> Reports </span></div>
+                        <div class="grid-2"> Basic</div>
+                        <div class="grid-3"> Standard</div>
+                    </div>
+                    <div class="grid-item item-body">
+                        <div class="grid-1">
+                            <span class="note-dot"> Third-party calculated shipping rates(coming soon) <br> Show calculated rates with your own account or third-party apps at checkout. </span>
+                        </div>
+                        <div class="grid-2"></div>
+                        <div class="grid-3"></div>
+                    </div>
+                    <div class="grid-item item-body">
+                        <div class="grid-1"><span class="note-dot"> Customer segmentation <br> Filter and group customers into hundreds of segments. </span>
+                        </div>
+                        <div class="grid-2">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                        <div class="grid-3">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                    </div>
+                    <div class="grid-item item-body">
+                        <div class="grid-1"><span class="note-dot"> Marketing automation <br> Send automated emails with templated or custom workflows. </span>
+                        </div>
+                        <div class="grid-2">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                        <div class="grid-3">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                    </div>
+                    <div class="grid-item item-body">
+                        <div class="grid-1"><span class="note-dot"> Unlimited contacts </span></div>
+                        <div class="grid-2">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                        <div class="grid-3">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                    </div>
+                    <div class="grid-item item-body">
+                        <div class="grid-1"><span class="note-dot"> E-commerce automations (Coming soon) <br> Automate manual tasks, build workflows, and grow your business. </span>
+                        </div>
+                        <div class="grid-2"></div>
+                        <div class="grid-3">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                    </div>
+                    <div class="grid-item item-body item-body-last">
+                        <div class="grid-1"><span class="note-dot"> Fraud analysis </span></div>
+                        <div class="grid-2">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                        <div class="grid-3">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                    </div>
+                    <div class="grid-item item-body item-body-first">
+                        <div class="grid-1"> INTERNATIONAL COMMERCE</div>
+                        <div class="grid-2"></div>
+                        <div class="grid-3"></div>
+                    </div>
+                    <div class="grid-item item-body">
+                        <div class="grid-1"><span class="note-dot"> International market management <br> Define geographic market areas to ensure you are providing a localized buying experience for customers in different regions. </span>
+                        </div>
+                        <div class="grid-2">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                        <div class="grid-3">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                    </div>
+                    <div class="grid-item item-body">
+                        <div class="grid-1"><span class="note-dot"> Market domains and subfolders(Coming soon) <br> Assign custom web addresses for each market that are optimized for search results and automatically redirect customers to the right domain based on their market. </span>
+                        </div>
+                        <div class="grid-2">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                        <div class="grid-3">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                    </div>
+                    <div class="grid-item item-body">
+                        <div class="grid-1"><span class="note-dot"> Language translation <br> Assign translated languages to customers in different markets to provide a familiar shopping experience. </span>
+                        </div>
+                        <div class="grid-2">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                        <div class="grid-3">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                    </div>
+                    <div class="grid-item item-body">
+                        <div class="grid-1"><span class="note-dot"> Currency conversion <br> Automatically convert prices into your customer’s local currency to drive conversion in each market (requires papmall<sup>&reg;</sup> payments). </span>
+                        </div>
+                        <div class="grid-2">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                        <div class="grid-3">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                    </div>
+                    <div class="grid-item item-body">
+                        <div class="grid-1"><span class="note-dot"> Local payment methods <br> Set local payment methods to appear for customers who check out in specific markets (requires papmall<sup>&reg;</sup> payments). </span>
+                        </div>
+                        <div class="grid-2">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                        <div class="grid-3">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                    </div>
+                    <div class="grid-item item-body item-body-last">
+                        <div class="grid-1"><span class="note-dot"> Custom pricing by market <br> Take greater control of your international pricing strategy by setting specific prices for products or product variants in each market. </span>
+                        </div>
+                        <div class="grid-2">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                        <div class="grid-3">
+                            <img alt="Checked" class="icon-checked" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-checked-blue-1659753851.svg" title="Checked">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-container d-none d-md-block">
+                <a aria-controls="collapseTable" aria-expanded="false" class="btn-collapse" data-toggle="collapse" href="#collapseTable" id="btn-collapse" id="btn-collapse" role="button"> Show plan features </a>
+            </div>
+        </div>
+    </section>
+    <section class="section-how">
+        <div class="container">
+            <div class="inner-title"><h2 class="text-center"> How papmall<sup>&reg;</sup> Works </h2></div>
+            <div class="swiper swiper-step">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide shadow rouded-10">
+                        <div class="bg-white h-100"><p class="text-center p-20">
+                            <img alt="Create an account" class=" lazyloaded" data-src="https://d3lpnmaex2fqln.cloudfront.net/uploads/ic-create-account-1645000916.svg" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/ic-create-account-1645000916.svg" title="Create an account">
+                        </p>
+                            <h3 class="title-count"><span>1</span> Create an account </h3>
+                            <p class="text-center p-20">Sign up for free, set up your store, and offer your products and services to our global audiences.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide shadow rouded-10">
+                        <div class="bg-white h-100"><p class="text-center p-20">
+                            <img alt="Deliver great work" class=" lazyloaded" data-src="https://d3lpnmaex2fqln.cloudfront.net/uploads/ic-deliver-1645000916.svg" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/ic-deliver-1645000916.svg" title="Deliver great work">
+                        </p>
+                            <h3 class="title-count"><span>2</span> Deliver great work </h3>
+                            <p class="text-center p-20">Get notified when you get an order, and use our system to discuss details with customers.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide shadow rouded-10">
+                        <div class="bg-white h-100"><p class="text-center p-20">
+                            <img alt="Get paid" class=" lazyloaded" data-src="https://d3lpnmaex2fqln.cloudfront.net/uploads/ic-get-pay-1645000916.svg" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/ic-get-pay-1645000916.svg" title="Get paid">
+                        </p>
+                            <h3 class="title-count"><span>3</span> Get paid </h3>
+                            <p class="text-center p-20">Get paid on time, every time. Payment is transferred to you upon order completion.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination swiper-pagination-step"></div>
+            </div>
+        </div>
+    </section>
+    <section class="section-step-sell">
+        <div class="container">
+            <div class="inner-title"><h2 class="text-center"> How to sell on papmall<sup>&reg;</sup> </h2></div>
+            <div class="row row-lg-40">
+                <div class="col-md-3">
+                    <div class="card card-simple">
+                        <img alt="Step 1" class="icon-step" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-sell-step-1-1659922641.svg">
+                        <p class="text"> Create your account at papmall<sup>&reg;</sup>. </p></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card card-simple">
+                        <img alt="Step 2" class="icon-step" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-sell-step-2-1659922641.svg">
+                        <p class="text"> Click on Become a Seller and follow the steps. </p></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card card-simple">
+                        <img alt="Step 3" class="icon-step" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-sell-step-3-1659922641.svg">
+                        <p class="text"> Submit required documents to papmall<sup>&reg;</sup>, and wait for papmall<sup>&reg;</sup>’s approval.</div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card card-simple">
+                        <img alt="Step 4" class="icon-step" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-sell-step-4-1659922641.svg">
+                        <p class="text"> Your account is ready to use, and you can start selling on your PAP instantly. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-container">
+                <a class="btn btn-hover btn-xl" href="|||LANG|||/register" title="Sign Up Now"> Sign Up Now </a></div>
+        </div>
+    </section>
+    <section class="section-hear">
+        <div class="container">
+            <div class="inner-title"><h2 class="text-center"> We would love to hear from you </h2>
+                <p class="text-center"> papmall<sup>&reg;</sup> values each and every feedback from our clients on the products & services as well as how we can better improve your experiences. </p>
+            </div>
+            <div class="media media-hearing media-cleared-xs">
+                <div class="media-body">
+                    <div class="inner-border-text">
+                        <img alt="" class="icon" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-24h-1659927633.svg">
+                        <ul class="list-unstyled list-orange-circle-check">
+                            <li>Offer practical assistance and guidance.</li>
+                            <li>Get round-the-clock support via phone, live chat, emails.</li>
+                        </ul>
+                    </div>
+                    <h3 class="title-sm"> Call Us: </h3>
+                    <dl class="dl-list">
+                        <dt>
+                            <img alt="Call" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-call-1659928409.svg" title="Call">
+                        </dt>
+                        <dd> USA: <a href="tel:+19498646074">+1 (949) 864 6074</a></dd>
+                    </dl>
+                    <dl class="dl-list">
+                        <dt>
+                            <img alt="Call" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-call-1659928409.svg" title="Call">
+                        </dt>
+                        <dd> Singapore: <a href="tel:+6565918785">+65 65918785</a></dd>
+                    </dl>
+
+                    <dl class="dl-list">
+                        <dt>
+                            <img alt="WhatsApp" src="https://d2thlf3ixnm9za.cloudfront.net/uploads/icon-whatsapp-1592902657.svg" title="WhatsApp" width="28">
+                        </dt>
+                        <dd> WhatsApp: <a href="tel:+6586439982">+65 8643 9982</a></dd>
+                    </dl>
+                    <dl class="dl-list">
+                        <dt>
+                            <img alt="Telegram" src="https://d2thlf3ixnm9za.cloudfront.net/uploads/icon-telegram-1592902657.svg" title="Telegram" width="28">
+                        </dt>
+                        <dd> Telegram: <a href="tel:+6586439982">+65 8643 9982</a></dd>
+                    </dl>
+                    <dl class="dl-list">
+                        <dt>
+                            <img alt="Signal" src="https://d2thlf3ixnm9za.cloudfront.net/uploads/icon-signal-number-1592902657.svg" title="Signal" width="28">
+                        </dt>
+                        <dd> Signal: <a href="tel:+6586439982">+65 8643 9982</a></dd>
+                    </dl>
+                    <h3 class="title-sm mt-custom"> Email Us: </h3>
+                    <dl class="dl-list">
+                        <dt>
+                            <img alt="Call" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-mail-1659928409.svg" title="Call">
+                        </dt>
+                        <dd><a href="mailto:support@papmall.com">support@papmall.com</a></dd>
+                    </dl>
+                </div>
+                <div class="media-right">
+                    <img alt="We will contact you shortly" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/img-contact-hear-1659927112.jpg">
+                    <div class="cap-with-btn"> We will contact you shortly
+                        <div class="btn-container">
+                            <a class="btn btn-hover btn-xl" href="|||LANG|||/contact-us" title="Contact Now"> Contact Now </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-global-brand">
+        <div class="container">
+            <div class="inner-title">
+                <h2 class="text-center"> Top global brands and companies use papmall<sup>&reg;</sup> to scale up their businesses. </h2>
+            </div>
+            <div class="swiper swiper-brand">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img alt="Traveler" class="img-responsive" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/travelner-1659930647.svg" title="Traveler">
+                    </div>
+                    <div class="swiper-slide">
+                        <img alt="One IBC" class="img-responsive" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/oneibc-1659930647.svg" title="One IBC">
+                    </div>
+                    <div class="swiper-slide">
+                        <img alt="PayCEC" class="img-responsive" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/paycec-1659930647.svg" title="PayCEC">
+                    </div>
+                    <div class="swiper-slide">
+                        <img alt="Bin Media" class="img-responsive" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/bin-media-1659930647.svg" title="Bin Media">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-faqs">
+        <div class="container">
+            <div class="inner-title"><h2 class="text-center"> FAQs </h2></div>
+            <div class="row">
+                <div class="col-12">
+                    <div aria-controls="faqs-0" aria-expanded="false" class="collapse-style-1 mb-20 collapsed" data-target="#faqs-0" data-toggle="collapse">
+                        <h3>How can I open my store on papmall<sup>&reg;</sup> e-commerce platform?</h3>
+                        <div class="collapse" id="faqs-0" style="">
+                            <div class="pt-10">
+                                <p>
+                                    Opening a store on papmall<sup>&reg;</sup> is swift and simple. Follow these steps and open your store on papmall<sup>&reg;</sup> right away.
+
+                                <ol class="pl-20">
+                                    <li>
+                                        Create your papmall<sup>&reg;</sup> account
+                                    </li>
+                                    <li>
+                                        Become a Seller
+                                    </li>
+                                    <li>
+                                        Go to your Seller Center
+                                    </li>
+                                    <li>
+                                        Create your first PAP
+                                    </li>
+                                    <li>
+                                        Wait for papmall<sup>&reg;</sup> to review your listing
+                                    </li>
+                                    <li>
+                                        Start your journey with papmall<sup>&reg;</sup> and enjoy your first sale
+                                    </li>
+                                </ol>
+                                </p>
+                                <a class="text-blue" href="#" target="_self" title="Learn more">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div aria-controls="faqs-1" aria-expanded="false" class="collapse-style-1 mb-20 collapsed" data-target="#faqs-1" data-toggle="collapse">
+                        <h3>What documents should I prepare for the Seller Account registration?</h3>
+                        <div class="collapse" id="faqs-1" style="">
+                            <div class="pt-10">
+                                <p>
+                                    Before registering for a papmall<sup>&reg;</sup> Seller Account, you should prepare some documents for us to get a clear understanding of your products and services.
+
+                                <ul class="pl-20">
+                                    <li>
+                                        Personal Documents:
+                                        <ul class="pl-20">
+                                            <li>
+                                                Identification Documents: your Identity Card or Passport.
+                                            </li>
+                                            <li>
+                                                Proof of Address: Utility Bill (Water Bill, Electricity Bill, Landline Telephone Bill, etc.), or the latest Bank Statement, Bank Reference.
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                                If you register under a Company, Agency, or Business, papmall<sup>&reg;</sup> will need a full set of your business documents:
+
+                                <ul class="pl-20">
+                                    <li>
+                                        Company Documents:
+                                        <ul class="pl-20">
+                                            <li>
+                                                Business Registration Certificate.
+                                            </li>
+                                            <li>
+                                                Certificate of Incorporation.
+                                            </li>
+                                            <li>
+                                                Certificate of Good Standing, Incumbency Certificate.
+                                            </li>
+                                            <li>
+                                                Register of Directors, Shareholders, UBO (Ultimate Beneficial Ownership).
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                </p>
+                                <a class="text-blue" href="#" target="_self" title="Learn more">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div aria-controls="faqs-2" aria-expanded="false" class="collapse-style-1 mb-20" data-target="#faqs-2" data-toggle="collapse">
+                        <h3>How can I get paid when I sell my products and services to Buyers?</h3>
+                        <div class="collapse" id="faqs-2">
+                            <div class="pt-10">
+                                <p>
+                                    After an order is complete, earnings will automatically be directed to your Seller Account. You can withdraw the funds to your registered bank accounts, or your PayPal accounts once you have connected them to papmall<sup>&reg;</sup>.
+                                    <br>
+                                    <br>
+                                    papmall<sup>&reg;</sup> Protect is papmall<sup>&reg;</sup> special program made to prevent scams and safeguard Sellers and Buyers from fraud transactions. Until the fulfillment is complete, papmall<sup>&reg;</sup> is going to hold the order payment in escrow, and only releasing it to Sellers once Buyers have confirmed receipt of the order or if the deadline for confirmation has passed. For more information, visit papmall<sup>&reg;</sup> Terms & Conditions and Refund & Return Policy. For further assistance, please contact the papmall<sup>&reg;</sup> support team via Chat Box or
+                                    <a href="mailto:support@papmall.com.">support@papmall.com.</a>
+                                </p>
+                                <a class="text-blue" href="#" target="_self" title="Learn more">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div aria-controls="faqs-3" aria-expanded="false" class="collapse-style-1 mb-20" data-target="#faqs-3" data-toggle="collapse">
+                        <h3>How long does it take to activate my store on papmall<sup>&reg;</sup> e-commerce platform?</h3>
+                        <div class="collapse" id="faqs-3">
+                            <div class="pt-10">
+                                <p>After papmall<sup>&reg;</sup> receives your listing request, it usually takes around 24 - 48 hours to wait for your store to go live on papmall<sup>&reg;</sup> international e-commerce platform. If your review takes longer to process than usual expectations, please contact the papmall<sup>&reg;</sup> support team via Chat Box or
+                                    <a href="support@papmall.com">support@papmall.com</a> for more assistance.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div aria-controls="faqs-4" aria-expanded="false" class="collapse-style-1 mb-20" data-target="#faqs-4" data-toggle="collapse">
+                        <h3>Can freelancers apply for Seller Accounts?</h3>
+                        <div class="collapse" id="faqs-4">
+                            <div class="pt-10">
+                                <p>Yes, every freelancer is encouraged to open a Seller Account on papmall<sup>&reg;</sup>. Being a Seller on papmall<sup>&reg;</sup> comes with many benefits, we offer global connections between Buyers and Sellers around the world so that you can cooperate easily, and we do it with just an economical fee compared to other players in this field.</p>
+                                <a class="text-blue" href="#" target="_self" title="Learn more">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div aria-controls="faqs-5" aria-expanded="false" class="collapse-style-1 mb-20 collapsed" data-target="#faqs-5" data-toggle="collapse">
+                        <h3>How can I withdraw my funds from my Seller Account?</h3>
+                        <div class="collapse" id="faqs-5" style="">
+                            <div class="pt-10">
+                                <p>
+                                    You can review your earnings by going into
+                                    <a class="text-blue" href="https://seller.papmall.com/earnings"></a> or login to your Seller Account and click on Earnings to see your revenues.
+                                    <br>
+                                    To withdraw your funds, simply select
+                                    <a class="text-blue" href="#">Request To Withdraw</a> and wait for the income to be credited into your registered bank account or PayPal account.
+                                </p>
+                                <a class="text-blue" href="#" target="_self" title="Learn more">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div aria-controls="faqs-6" aria-expanded="false" class="collapse-style-1 mb-20 collapsed" data-target="#faqs-6" data-toggle="collapse">
+                        <h3>How to sell my products and services on papmall<sup>&reg;</sup> e-commerce platform?</h3>
+                        <div class="collapse" id="faqs-6" style="">
+                            <div class="pt-10">
+                                <p>
+                                    To start selling your products and services on papmall<sup>&reg;</sup>, you will first need to Create a papmall<sup>&reg;</sup> account, then Become a Seller. After that, choose whether you want to sell a Service or Digital product, Create A New PAP, and start selling on papmall<sup>&reg;</sup> international e-commerce platform.
+                                </p>
+                                <a class="text-blue" href="#" target="_self" title="Learn more">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div aria-controls="faqs-7" aria-expanded="false" class="collapse-style-1 mb-20" data-target="#faqs-7" data-toggle="collapse">
+                        <h3>How long does it take for me to receive revenues from an order?</h3>
+                        <div class="collapse" id="faqs-7">
+                            <div class="pt-10"><p>
+                                After an order is completed, revenues are available for withdrawal via the
+                                <a class="text-blue" href="https://seller.papmall.com/earnings">Earnings</a> page in the Seller Center within 14 working days for regular Sellers.
+                                <br>
+                                For Top Rated Sellers, your funds take only 10 working days to become withdrawable.
+                            </p></div>
+                        </div>
+                    </div>
+                    <div aria-controls="faqs-8" aria-expanded="false" class="collapse-style-1 mb-20" data-target="#faqs-8" data-toggle="collapse">
+                        <h3>Can I track revenue with a full report?</h3>
+                        <div class="collapse" id="faqs-8">
+                            <div class="pt-10">
+                                <p>
+                                    You can track revenue full report using papmall<sup>&reg;</sup> Analytics page in the Seller Center or visit
+                                    <a class="text-blue" href="https://seller.papmall.com/analytics">seller.papmall.com/analytics</a> for your detailed revenue report.
+                                    <br>
+                                    Our advanced analysis tool will give you a new look at how your PAP stores are running, what your conversion rate is, your order completion and cancellation rate, and how well you are making profits. Based on those data you can plan ahead and make decisions to improve your business.
+                                </p>
+                                <a class="text-blue" href="#" target="_self" title="Learn more">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div aria-controls="faqs-9" aria-expanded="false" class="collapse-style-1 mb-20" data-target="#faqs-9" data-toggle="collapse">
+                        <h3>Can a beginner make money on papmall<sup>&reg;</sup>?</h3>
+                        <div class="collapse" id="faqs-9">
+                            <div class="pt-10">
+                                <p>
+                                    The answer is yes, anyone can make money on papmall<sup>&reg;</sup>, including beginners. Visit papmall<sup>&reg;</sup>
+                                    <a class="text-blue" href="|||LANG|||/faq">Help Center</a> for our exclusive Beginner Guides, and Become a Seller now to enjoy our exciting offers for new Sellers, such as:
+                                <ul class="pl-20">
+                                    <li>
+                                        The first 3 month free of monthly charge.
+                                    </li>
+                                    <li>
+                                        Get to appear on our New Seller area on the Homepage of papmall<sup>&reg;</sup>.
+                                    </li>
+                                    <li>
+                                        Special promotions for newbies.
+                                    </li>
+                                </ul>
+                                Join
+                                <a class="text-blue" href="|||LANG|||/register">papmall<sup>&reg;</sup></a> today to do what you love and get extra income for it.
+                                </p>
+                                <a class="text-blue" href="#" target="_self" title="Learn more">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div aria-controls="faqs-10" aria-expanded="false" class="collapse-style-1 mb-20 collapsed" data-target="#faqs-10" data-toggle="collapse">
+                        <h3>What can I do to be promoted?</h3>
+                        <div class="collapse" id="faqs-10" style="">
+                            <div class="pt-10">
+                                <p>
+                                    There are 2 ways that you can be promoted on our Homepage:
+                                <ol class="pl-20">
+                                    <li>
+                                        New Seller: as a newcomer, you can enjoy the first month of being on the cover of our front page.
+                                    </li>
+                                    <li>
+                                        Top Rated Seller: being rated and receiving great reviews by Buyers can get you into papmall<sup>&reg;</sup> Top Rated Seller of the month list.
+                                    </li>
+                                </ol>
+                                Give out the coolest and best quality products to get featured in our recommendation section and gain more income for doing what you love.
+                                </p>
+                                <a class="text-blue" href="#" target="_self" title="Learn more">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div aria-controls="faqs-11" aria-expanded="false" class="collapse-style-1 mb-20 collapsed" data-target="#faqs-11" data-toggle="collapse">
+                        <h3>What should I do to improve my rating?</h3>
+                        <div class="collapse" id="faqs-11" style="">
+                            <div class="pt-10">
+                                <p>
+                                    There are many ways you can improve your rating:
+                                <ol class="pl-20">
+                                    <li>Improve your listing quality</li>
+                                    <li>Improve your customer service</li>
+                                    <li>Improve your order placement</li>
+                                </ol>
+                                </p>
+                                <a class="text-blue" href="#" target="_self" title="Learn more">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div aria-controls="faqs-12" aria-expanded="false" class="collapse-style-1 mb-20" data-target="#faqs-12" data-toggle="collapse">
+                        <h3>Do I get any support from papmall<sup>&reg;</sup> when I have disputes?</h3>
+                        <div class="collapse" id="faqs-12">
+                            <div class="pt-10">
+                                <p>
+                                    papmall<sup>&reg;</sup> encourages our Buyers and Sellers to work out their differences, compromise, and come to an agreement that best fits their needs and requirements.
+                                    <br>
+                                    However, if the matter cannot be resolved through individual communication, please check out papmall<sup>&reg;</sup>
+                                    <a href="|||LANG|||/info/terms-conditions" class="text-blue">Terms & Conditions</a>, our
+                                    <a href="|||LANG|||/info/refund-return-policy" class="text-blue">Refund & Return Policy</a>, or contact the papmall<sup>&reg;</sup> support team via Chat Box and
+                                    <a href="#">support@papmall.com</a>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div aria-controls="faqs-13" aria-expanded="false" class="collapse-style-1 mb-20" data-target="#faqs-13" data-toggle="collapse">
+                        <h3>What should I do if I want to update my information?</h3>
+                        <div class="collapse" id="faqs-13">
+                            <div class="pt-10">
+                                <p>To update your information, simply hover over your name and profile picture on the papmall<sup>&reg;</sup> Home page and select My Account, or go to
+                                    <a href="|||LANG|||/myaccount/profile" class="text-blue">papmall.com/myaccount/profile</a> and modify your account information.
+                                    <br>
+                                    Please keep in mind that some information like email address is anchored and can’t be changed. If you still wish to update these information, please contact our support team via Chat Box or
+                                    <a href="support@papmall.com">support@papmall.com</a>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div aria-controls="faqs-14" aria-expanded="false" class="collapse-style-1 mb-20" data-target="#faqs-14" data-toggle="collapse">
+                        <h3>Do you offer any online selling training courses for beginners?</h3>
+                        <div class="collapse" id="faqs-14">
+                            <div class="pt-10">
+                                <p>Yes, papmall<sup>&reg;</sup> will offer many online training courses to our Sellers and Buyers, including Beginner Guides, tips to increase sales volume and maximize sales value, how to detect scams, how to create an effective campaign, advice on the latest trends in the e-commerce industry, and et cetera. This utility is being developed by our experts and will soon be introduced to papmall<sup>&reg;</sup> users.
+                                    <br>
+                                    Please kindly wait for more updates on the online training courses from team papmall<sup>&reg;</sup>. Subscribe to papmall<sup>&reg;</sup> official channels to receive the latest information about our products, services, and resources.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-container mt-3">
+                <a class="btn-collapse" href="#" id="btn-collapse-1"> View more </a>
+                <a class="btn btn-hover btn-xl" href="|||LANG|||/faq" id="btn-see-more"> See more </a>
+            </div>
+        </div>
+    </section>
+    <section class="section-quote">
+        <div class="inner-title"><h2 class="text-center"> What entrepreneurs like you are saying about papmall<sup>&reg;</sup> </h2>
+        </div>
+        <div class="swiper swiper-quote">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="card card-quote">
+                        <img alt="Liam Harris" class="avatar" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/liam-harris-1659934242.png" title="Liam Harris" width="102"> Their experts and their services have allowed me to focus on the thing that I'm good at: UI/UX design. papmall<sup>&reg;</sup> has proved a very professional and reliable platform for me.
+                        <p class="text-bold"> Liam Harris </p></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card card-quote">
+                        <img alt="Evelyn Clark" class="avatar" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/evelyn-clark-1659939855.png" title="Evelyn Clark" width="102"> I have a bricks-and-mortar store and have been selling on papmall<sup>&reg;</sup> now. Their fees are reasonable. They have never failed to pay me and they have been supportive when customers dispute my delivery.
+                        <p class="text-bold"> Evelyn Clark </p></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card card-quote">
+                        <img alt="Daniel Walker" class="avatar" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/daniel-walker-1659939855.png" title="Daniel Walker" width="102"> A very Genuine Platform to start your Freelancer Career
+                        <p class="text-bold"> Daniel Walker </p></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card card-quote">
+                        <img alt="Park Jin Joo" class="avatar" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/park-jin-joo-1659940054.png" title="Park Jin Joo" width="102"> Very good place for freelancers and small businesses. The payment system is one of the best.
+                        <p class="text-bold"> Park Jin Joo </p></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card card-quote">
+                        <img alt="Clara Schneider" class="avatar" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/clara-schneider-1659940054.png" title="Clara Schneider" width="102"> papmall<sup>&reg;</sup> has given me the freedom & flexibility to be a professional and a mom
+                        <p class="text-bold"> Clara Schneider </p></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card card-quote">
+                        <img alt="Carlos Rodriguez" class="avatar" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/carlos-rodriguez-1659940054.png" title="Carlos Rodriguez" width="102"> Quickest and safest place to share your products and services online! Communication with the client is straightforward, and it feels secure to apply and spend precious time on the PAP with papmall<sup>&reg;</sup>'s clients and the client's payment verification methods. It's easy to track time with its dashboard.
+                        <p class="text-bold"> Carlos Rodriguez </p></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card card-quote">
+                        <img alt="Emma Wu" class="avatar" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/emma-wu-1659940294.png" title="Emma Wu" width="102"> I like the ability to choose which PAP/projects I want to accept from clients. papmall<sup>&reg;</sup> has been a great second source of income and a great opportunity to grow my skills and my business.
+                        <p class="text-bold"> Emma Wu </p></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card card-quote">
+                        <img alt="Katherine Nguyen" class="avatar" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/katherine-nguyen-1659940294.png" title="Katherine Nguyen" width="102"> papmall<sup>&reg;</sup> has a super duper customer service. They support me swiftly and deliver what I exactly need. Great job!.
+                        <p class="text-bold"> Katherine Nguyen </p></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card card-quote">
+                        <img alt="Louis Haminton" class="avatar" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/louis-haminton-1659940294.png" title="Louis Haminton" width="102"> I have been selling digital products on papmall<sup>&reg;</sup> for a while. Easy to track my orders and able to contact the buyers with no issues.
+                        <p class="text-bold"> Louis Haminton </p></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card card-quote">
+                        <img alt="Amanda de Cadenet" class="avatar" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/amanda-de-cadenet-1659940469.png" title="Amanda de Cadenet" width="102"> Chat is available 24/7. I am a new seller but still answers all my questions very patiently.
+                        <p class="text-bold"> Amanda de Cadenet </p></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card card-quote">
+                        <img alt="Justin Long" class="avatar" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/justin-long-1659940469.png" title="Justin Long" width="102"> papmall<sup>&reg;</sup> is a very good platform for sellers such as myself, from their payment system to how they handle customers is excellent.
+                        <p class="text-bold"> Justin Long </p></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card card-quote">
+                        <img alt="Julie Yeh" class="avatar" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/julie-yeh-1659940469.png" title="Julie Yeh" width="102"> I’ve found wonderful, quality clients on papmall<sup>&reg;</sup>, and have grown my business exponentially. More than I expected.
+                        <p class="text-bold"> Julie Yeh </p></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card card-quote">
+                        <img alt="David Schneider" class="avatar" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/david-schneider-1659940633.png" title="David Schneider" width="102"> papmall<sup>&reg;</sup> is a great platform for freelancers who want to get work consistently. For me, this platform has so far satisfied me with their service and support. No complaints at all.
+                        <p class="text-bold"> David Schneider </p></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card card-quote">
+                        <img alt="Annie Mendes" class="avatar" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/annie-mendes-1659940633.png" title="Annie Mendes" width="102"> papmall<sup>&reg;</sup> is an easy-to-use platform. I created multiple profiles for working in different areas, and found long-term relationships with many clients.
+                        <p class="text-bold"> Annie Mendes </p></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card card-quote">
+                        <img alt="Anitha Balakrishna" class="avatar" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/anitha-balakrishna-1659940633.png" title="Anitha Balakrishna" width="102"> A really user-friendly platform is papmall<sup>&reg;</sup>. The website is extremely user-friendly and provides a number of useful features to aid in sifting through the enormous talent pool. I have got many potential clients thanks to papmall<sup>&reg;</sup>.
+                        <p class="text-bold"> Anitha Balakrishna </p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+        commands.push(function () {
+            $("#btn-1").click(function () {
+                if ($("#btn-1").attr("aria-expanded") === "true") {
+                    $("#btn-1").text('Show plan features')
+                } else {
+                    $("#btn-1").html('Show less')
+                }
+            });
+
+            $("#btn-2").click(function () {
+                if ($("#btn-2").attr("aria-expanded") === "true") {
+                    $("#btn-2").text('Show plan features')
+                } else {
+                    $("#btn-2").html('Show less')
+                }
+            });
+
+            $("#btn-3").click(function () {
+                if ($("#btn-3").attr("aria-expanded") === "true") {
+                    $("#btn-3").text('Show plan features')
+                } else {
+                    $("#btn-3").html('Show less')
+                }
+            });
+
+            $("#btn-collapse").click(function () {
+                if ($("#btn-collapse").attr("aria-expanded") === "true") {
+                    $("#btn-collapse").text('Show plan features')
+                } else {
+                    $("#btn-collapse").html('Show less')
+                }
+            });
+
+            $(document).ready(function () {
+                $('.collapse-style-1').hide();
+                $('#btn-see-more').hide();
+                length_faqs = $(".collapse-style-1").length;
+                x = 5;
+                $('.collapse-style-1:lt(' + x + ')').show();
+                $('#btn-collapse-1').click(function (event) {
+                    event.preventDefault();
+                    x = (x + 5 <= length_faqs) ? x + 5 : length_faqs;
+                    $('.collapse-style-1:lt(' + x + ')').show();
+                    if (x === length_faqs) {
+                        $('#btn-collapse-1').hide();
+                        $('#btn-see-more').show();
+                    }
+                })
+            });
+        });
+
+        var date = new Date("2022-08-17");
+        var dateString = date.toISOString().split("T")[0];
+        var countDownDate = new Date(
+            dateString + "T24:00:00".replace(/\s/, "T")
+        ).getTime();
+        var x = setInterval(function () {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            if (distance <= 100) {
+                date.setDate(date.getDate() + 7);
+                dateString = date.toISOString().split("T")[0];
+                countDownDate = new Date(
+                    dateString + "T24:00:00".replace(/\s/, "T")
+                ).getTime();
+            }
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            var daysstr = days.toString();
+            var hoursstr = hours.toString();
+            var minutesstr = minutes.toString();
+            var secondsstr = seconds.toString();
+
+            document.getElementById("days").innerHTML = daysstr.padStart(2, "0");
+            document.getElementById("hours").innerHTML = hoursstr.padStart(2, "0");
+            document.getElementById("min").innerHTML = minutesstr.padStart(2, "0");
+            document.getElementById("sec").innerHTML = secondsstr.padStart(2, "0");
+        }, 1000);
+
+        let swiperCategory = document.querySelector(".swiper-category");
+        if (swiperCategory) {
+            new Swiper(swiperCategory, {
+                spaceBetween: 15,
+                slidesPerView: "auto",
+                centeredSlides: true,
+                breakpoints: {
+                    768: {
+                        centeredSlides: false,
+                        slidesPerView: 3,
+                        spaceBetween: 50
+                    }
+                }
+            });
+        }
+        ;
+
+        let swipersubtitle = new Swiper(".swiper-sub-title", {
+            slidesPerView: 2,
+            centeredSlides: false,
+        });
+
+        let swipersubscript = new Swiper(".swiper-subscriptions", {
+            spaceBetween: 20,
+            slidesPerView: 1,
+            centeredSlides: true,
+            thumbs: {
+                swiper: swipersubtitle
+            },
+            breakpoints: {
+                1200: {
+                    centeredSlides: false,
+                    slidesPerView: 2,
+                    spaceBetween: 40
+                },
+                768: {
+                    centeredSlides: false,
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                }
+            }
+        });
+
+        let swiperSimple = document.querySelector(".swiper-simple");
+        if (swiperSimple) {
+            new Swiper(swiperSimple, {
+                spaceBetween: 15,
+                slidesPerView: 1,
+                centeredSlides: true,
+                pagination: {
+                    el: ".swiper-pagination"
+                },
+            });
+        }
+        ;
+
+        let swiperStep = document.querySelector(".swiper-step");
+        if (swiperStep) {
+            new Swiper(swiperStep, {
+                spaceBetween: 15,
+                slidesPerView: 1,
+                centeredSlides: true,
+                pagination: {
+                    el: ".swiper-pagination-step",
+                },
+                breakpoints: {
+                    768: {
+                        centeredSlides: false,
+                        slidesPerView: 3,
+                        spaceBetween: 50
+                    }
+                }
+            });
+        }
+        ;
+
+        let swiperBrand = document.querySelector(".swiper-brand");
+        if (swiperBrand) {
+            new Swiper(swiperBrand, {
+                slidesPerView: "auto",
+                centeredSlides: true,
+                spaceBetween: 30,
+                loop: true,
+                speed: 7500,
+                autoplay: {
+                    delay: 1
+                },
+                breakpoints: {
+                    767: {
+                        spaceBetween: 40,
+                        centeredSlides: false,
+                        loop: false,
+                        slidesPerView: 4
+                    },
+                },
+            });
+        }
+        ;
+
+        let swiperNews = document.querySelector(".swiper-newspaper");
+        if (swiperNews) {
+            new Swiper(swiperNews, {
+                slidesPerView: "auto",
+                centeredSlides: true,
+                spaceBetween: 30,
+                loop: true,
+                speed: 9500,
+                autoplay: {
+                    delay: 1
+                },
+            });
+        }
+        ;
+
+        let swiperQuote = document.querySelector(".swiper-quote");
+        if (swiperQuote) {
+            new Swiper(swiperQuote, {
+                slidesPerView: 1,
+                centeredSlides: true,
+                spaceBetween: 15,
+                loop: false,
+                autoplay: {
+                    delay: 5000,
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: "auto",
+                        centeredSlides: true,
+                        spaceBetween: 30,
+                        loop: true,
+                        speed: 9500,
+                        autoplay: {
+                            delay: 1
+                        },
+                    }
+                }
+            });
+        }
+        ;
+    </script>
+</main>
+
+
+<script> commands.push(function () {
+    if ($(window).width() > 768) {
+        $(document).ready(function () {
+            let el = $('.table-sub-section-small ul');
+            $('.table-title-list li').each(function (index) {
+                for (let i = 0; i < el.length; i++) {
+                    let elHieght = el[i].clientHeight + 1;
+                    if (index === i) {
+                        $(this).css("height", elHieght);
+                    }
+                }
+            });
+        })
+    } else {
+        $('.table-option').click(function () {
+            $('.table-title-list').stop().slideToggle();
+        });
+        $('.table-title-list li').click(function () {
+            $(this).parent().stop().slideUp();
+            $('.table-sub-section').removeClass('active');
+            var activeTab = $(this).find('a').attr('href');
+            $(activeTab).addClass('active');
+            let option = $(this).text();
+            $('.table-option').text(option);
+            $('.table-option').css("color", "#000");
+            return false;
+        });
+    }
+    $(document).ready(function () {
+        var wrapperReview = $(".wrapper-slide-recent-reviews");
+
+        function anim() {
+            var st = wrapperReview.scrollLeft();
+            var sb = wrapperReview.prop("scrollWidth") - wrapperReview.innerWidth();
+            let c = wrapperReview.prop("scrollLeft");
+            wrapperReview.animate({scrollLeft: st <= sb / 2 ? sb : 0}, 20000, anim)
+        }
+
+        function stop() {
+            wrapperReview.stop();
+        }
+
+        anim();
+        wrapperReview.hover(stop, anim)
+    });
+}); </script>
+<div aria-modal="true" class="modal" id="addToCartModal" style="z-index: 1100" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body border-radius-12">
+                <div class="d-flex flex-column align-items-center row-gap-20">
+                    <img src="https://www.papmall.com/frontend/images/icon-successful.svg">
+                    <p class="text-white"</p> </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="notify-modal" role="dialog" tabindex="-1">
+    <div class="modal-lg modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body"></div>
+        </div>
+    </div>
+</div>
+<div class="modal" data-backdrop="false" id="confirm-modal" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content p-20">
+            <div class="title mt-15 text-16 text-center text-bolder"></div>
+            <div class="content mt-25 text-16"></div>
+            <div class="d-flex justify-content-end align-content-center mt-20">
+                <button class="btn btn-default flex-grow-1 m-2" data-dismiss="modal" style="background-color: #F1F1F1; color: unset;" type="button">Cancel</button>
+                <button class="btn btn-secondary flex-grow-1 m-2" data-dismiss="modal" type="button">Yes, Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal modal-style-2-mobile fade" id="modal-create-list" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered max-w-440" role="document">
+        <div class="modal-content w-100 rounded-12">
+            <div class="modal-header border-0 justify-content-center"><h5 class="modal-title text-16">
+                <strong>Name your new list</strong></h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" style="position: absolute;right:20px;top:15px" type="button">
+                    <img alt="" src="https://www.papmall.com/frontend/images/icon-close.svg" title=""></button>
+            </div>
+            <div class="modal-body pb-20">
+                <div class="form-group form-large"><input class="form-control" placeholder="List Name" type="text"/>
+                    <small class="text-red-orange message"></small></div>
+                <a class="text-16 rouded-10 w-100 btn-hover btn" href="javascript:void(0)" target="_self" title="OK">OK</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div aria-hidden="true" class="modal modal-style-1 modal-style-2-mobile fade" id="modal-add-list" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content w-auto p-0">
+            <div class="modal-header align-items-center border-0">
+                <img class="w-auto mr-20" src="https://www.papmall.com/frontend/images/icon-successful.svg">
+                <p class="modal-title mr-20" id="exampleModalLongTitle">Save item in <strong></strong></p>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <img src="https://www.papmall.com/frontend/images/icon-cancel-modal.svg"></button>
+            </div>
+        </div>
+    </div>
+</div>
+<div aria-hidden="true" class="modal modal-style-1 modal-style-category fade" id="modal-choose-category" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content w-100">
+            <div class="modal-header border-0"><h3 class="modal-title mx-auto">Digital Solution</h3>
+                <button aria-label="Close" class="close m-0 p-0" data-dismiss="modal" type="button">
+                    <img alt="" src="https://www.papmall.com/frontend/images/icon-cancel-modal.svg" title=""></button>
+            </div>
+            <div class="modal-body p-0 modal-body-category"></div>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="footer-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-lg-3 my-20">
+                    <div class="footer-info"><h3 class="footer-title">Company</h3>
+                        <ul class="footer-nav">
+                            <li><a class="footer-link" href="/about-us" target="_self" title="About Us"> About Us </a>
+                            </li>
+                            <li>
+                                <a class="footer-link" href="/beginners-guide" target="_self" title="Beginner&#39;s guide"> Beginner&#39;s guide </a>
+                            </li>
+                            <li><a class="footer-link" href="/safety" target="_self" title="Safety"> Safety </a></li>
+                            <li>
+                                <a class="footer-link" href="/become-a-seller" target="_self" title="Become a Seller"> Become a Seller </a>
+                            </li>
+                            <li>
+                                <a class="footer-link" href="/the-best-customized-global-ecommerce-marketplace" target="_self" title="The best customized global eCommerce marketplace"> The best customized global eCommerce marketplace </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3 my-20"><h3 class="footer-title">Resources</h3>
+                    <ul class="footer-nav">
+                        <li><a class="footer-link" href="/contact-us" target="_self" title="Contact Us"> Contact Us </a>
+                        </li>
+                        <li><a class="footer-link" href="/faq" target="_self" title="Help (FAQs)"> Help (FAQs) </a></li>
+                        <li><a class="footer-link" href="/newsroom" target="_self" title="Newsroom"> Newsroom </a></li>
+                        <li><a class="footer-link" href="/careers" target="_self" title="Careers"> Careers </a></li>
+                        <li>
+                            <a class="footer-link" href="/prohibited-services" target="_self" title="Prohibited Services"> Prohibited Services </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg-3 my-20"><h3 class="footer-title">Legal</h3>
+                    <ul class="footer-nav">
+                        <li>
+                            <a class="footer-link" href="/info/terms-conditions" target="_self" title="Terms & Conditions"> Terms & Conditions </a>
+                        </li>
+                        <li>
+                            <a class="footer-link" href="/info/refund-return-policy" target="_self" title="Refund & Return Policy"> Refund & Return Policy </a>
+                        </li>
+                        <li>
+                            <a class="footer-link" href="/info/payment-guides" target="_self" title="Payment Guides"> Payment Guides </a>
+                        </li>
+                        <li>
+                            <a class="footer-link" href="/info/papmall-safeguard" target="_self" title="papmall<sup>&reg;</sup> Safeguard"> papmall<sup>&reg;</sup> Safeguard </a>
+                        </li>
+                        <li>
+                            <a class="footer-link" href="/info/payment-terms" target="_self" title="Payment Terms"> Payment Terms </a>
+                        </li>
+                        <li>
+                            <a class="footer-link" href="/info/intellectual-property-protection" target="_self" title="Intellectual Property Protection"> Intellectual Property Protection </a>
+                        </li>
+                        <li>
+                            <a class="footer-link" href="/info/procedure-of-claim-and-dispute-handling" target="_self" title="Procedure of Claim and Dispute Handling"> Procedure of Claim and Dispute Handling </a>
+                        </li>
+                        <li>
+                            <a class="footer-link" href="/info/privacy-policy" target="_self" title="Privacy Policy"> Privacy Policy </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg-3 my-20"><h3 class="footer-title text-uppercase">Payment</h3>
+                    <img alt="Visa" class="lazyload mb-1" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-visa-1615800462.png" title="Visa"/>
+                    <img alt="Master Card" class="lazyload mb-1" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-mastercard-1615800462.png" title="Master Card"/>
+                    <img alt="American Express" class="lazyload mb-1" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-amex-1615800462.png" title="American Express"/>
+                    <img alt="Paypal" class="lazyload mb-1" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-paypal-1656034747.png" title="Paypal"/>
+                    <img alt="JCB" class="lazyload mb-1" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-jcb-1656034747.png" title="JCB"/>
+                    <img alt="Discover" class="lazyload mb-1" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-discover-1656034490.png" title="Discover"/>
+                    <h3 class="footer-title text-uppercase mt-20">Follow Us</h3>
+                    <ul class="footer-social-box mb-0">
+                        <li><a href="https://www.facebook.com/papmallofficial" target="_blank" title="Facebook">
+                            <img alt="Facebook" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-facebook-1652243571.svg" title="Facebook"/>
+                            <img alt="Facebook" class="active" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-facebook-1652243571.svg" title="Facebook"/>
+                        </a></li>
+                        <li>
+                            <a href="https://www.youtube.com/channel/UCqyI6vKzedlx5uCTxe-qGqA" target="_blank" title="Youtube">
+                                <img alt="Youtube" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/youtube-1655449772.svg" title="Youtube"/>
+                                <img alt="Youtube" class="active" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/youtube-1655449772.svg" title="Youtube"/>
+                            </a></li>
+                        <li>
+                            <a href="https://www.linkedin.com/company/papmall-singapore-pte-ltd" target="_blank" title="LinkedIn">
+                                <img alt="LinkedIn" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-linkedin-1652243571.svg" title="LinkedIn"/>
+                                <img alt="LinkedIn" class="active" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-linkedin-1652243571.svg" title="LinkedIn"/>
+                            </a></li>
+                        <li><a href="https://www.instagram.com/papmall_official/" target="_blank" title="Instagram">
+                            <img alt="Instagram" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-instagram-1652243571.svg" title="Instagram"/>
+                            <img alt="Instagram" class="active" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/icon-instagram-1652243571.svg" title="Instagram"/>
+                        </a></li>
+                        <li><a href="https://twitter.com/papmall" target="_blank" title="Twitter">
+                            <img alt="Twitter" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/twitter-1655449675.svg" title="Twitter"/>
+                            <img alt="Twitter" class="active" src="https://d3lpnmaex2fqln.cloudfront.net/uploads/twitter-1655449675.svg" title="Twitter"/>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <div class="container"><p class="text-gray-1 m-0">
+            <p>© 2022 PAPmall.com or its affiliates. All rights reserved Privacy Policy | Legal Agreement</p></p> </div>
+    </div>
+</footer>
+<div class="loader" id="l-loading">
+    <div class="w-100 h-100" style="display: flex;justify-content: center; align-items: center">
+        <img alt="Loading..." id="loading-image" src="https://www.papmall.com/frontend/images/loader.gif" style="max-width: 100vw;"/>
+    </div>
+</div>
+<div aria-hidden="true" aria-labelledby="youtubeModal" class="modal fade" id="youtube-modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <iframe allowfullscreen class="video" frameborder="0" src="" style="width: 100%; height: 100%"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<script> const globalVariables = {
+    recaptchaSitekey: '6Lc6ZiMbAAAAAL-6FAxbG0fWGD56Vdb7cs3U2Lm9',
+    langUrl: '/',
+    langCode: 'en',
+    locationCode: 'gx',
+    currency: JSON.parse('{"code":"USD","leftSymbol":"US$","rightSymbol":""}'),
+    urlImages: 'https://www.papmall.com/frontend/images/',
+    txt_rate_value: "(|||RATE||| rates)",
+    txt_price_can_not_be_negative_number: "The price cannot be a negative number",
+    txt_to_price_larger_from_price: "To price must be larger from price",
+    txt_create_list: "Create list",
+    txt_save_to_my_first_list: "Save to My favorite",
+    txt_confirm_yes: "Yes, Delete",
+    txt_confirm_no: "Cancel",
+    txt_name_must_be_greater_than_1_characters: "Name must be greater than 1 characters",
+    user: "119",
+    user_signature: "90973bef613343ff83b412e79de8edd06b71f7cd69683339e0b2caf5dfbf36ec",
+    checkFilter: function (filter) {
+        if ((filter.isNewest && filter.isNewest != '0' && filter.isNewest != '1') || (filter.isPopular && filter.isPopular != '0' && filter.isPopular != '1') || (filter.isPriceAsc && filter.isPriceAsc != '0' && filter.isPriceAsc != '1') || (filter.isPriceDesc && filter.isPriceDesc != '0' && filter.isPriceDesc != '1') || (filter.fromPrice && Number.isNaN(parseInt(filter.fromPrice)) && filter.fromPrice != 'null') || (filter.toPrice && Number.isNaN(parseInt(filter.toPrice)) && filter.toPrice != 'null') || (filter.brandsName && !Array.isArray(filter.brandsName)) || (filter.rating && (filter.rating != '0' && filter.rating != '1' && filter.rating != '2' && filter.rating != '3' && filter.rating != '4' && filter.rating != '5')) || (filter.categoryId && ((Number.isNaN(parseInt(filter.categoryId))) || (Number.isNaN(parseInt(filter.categoryId)) && filter.categoryId.includes('%'))))) {
+            return false;
+        }
+        return true;
+    }
+};
+window.CONSTRUCT_GLOBAL_VARIABLES = function (globalObj) {
+    typeof window['GLOBAL_VARIABLES'] === 'undefined' ? window.GLOBAL_VARIABLES = {} : console.error('Error , GLOBAL_VARIABLES are defined'); /* for (let [key, value] of Object.entries(globalObj)) { if (typeof window.GLOBAL_VARIABLES[key] === 'undefined') { window.GLOBAL_VARIABLES[key] = value; } }*/
+    for (var key in globalObj) {
+        if (typeof window.GLOBAL_VARIABLES[key] === 'undefined') {
+            window.GLOBAL_VARIABLES[key] = globalObj[key];
+        }
+    }
+};
+window.CONSTRUCT_GLOBAL_VARIABLES(globalVariables); </script>
+<script src='https://www.papmall.com/shared/js/final.min.js?v=1.0.4' type='text/javascript'></script>
+<script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js" type=" text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js" type="text/javascript"></script> <!-- <script src="https://www.google.com/recaptcha/api.js?render=--><!--"></script>-->
+<script> const ASSETS = {};
+for (var __i = 0; __i < commands.length; __i++) {
+    commands[__i]();
+}
+if (typeof (dataLayer) === 'object') {
+    dataLayer.push({'dynx_pagetype': 'landingpage', 'dynx_platform': 'desktop'});
+} </script>
+<script type="text/javascript"> $(document).ready(function () {
+    $(".selectCategory").select2({placeholder: "Category"});
+    $(document).on("click", "body .dropdown-menu", function (e) {
+        e.stopPropagation();
+    });
+    $(function () {
+        $('.carousel.lazy-load').bind('slide.bs.carousel', function (e) {
+            var image = $(e.relatedTarget).find('img[data-src]');
+            image.attr('src', image.data('src'));
+            image.removeAttr('data-src');
+        });
+    });
+    if ($('.iframe-lazy-container').length > 0) {
+        $('.iframe-lazy-container').click(function () {
+            let youtubeModal = $('#youtube-modal');
+            youtubeModal.modal('show');
+            let videoThumbnail = $(this).find('.youtube-video-thumbnail');
+            let video = youtubeModal.find('.video');
+            video.attr('src', videoThumbnail.attr('data-iframe'));
+        });
+    }
+}); </script>
+<script> var loadRecapchaEnterprise = function () {
+    if (!document.querySelector('#RC')) {
+        let rcSrc = "https://www.google.com/recaptcha/enterprise.js?render=6Lc6ZiMbAAAAAL-6FAxbG0fWGD56Vdb7cs3U2Lm9";
+        let rcScript = document.createElement('script');
+        rcScript.src = rcSrc;
+        rcScript.setAttribute('id', 'RC');
+        let body = document.querySelector('body');
+        body.appendChild(rcScript);
+    }
+};
+loadRecapchaEnterprise(); </script>
+</body>
+</html>
